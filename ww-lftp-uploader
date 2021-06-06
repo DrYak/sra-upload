@@ -1,0 +1,6 @@
+#!/bin/bash
+
+. /cluster/project/pangolin/miniconda3/bin/activate 'dehuman'
+
+printf '%s\n' *Wild_*.cram  *_202[01]_*.cram | grep -vP '\-hg.cram$' > uploadlist.txt
+lftp -c "connect webin.ebi.ac.uk; mirror --reverse --continue --no-perms --no-umask --parallel=16 --loop --target-directory=/ --include-glob-from=uploadlist.txt"

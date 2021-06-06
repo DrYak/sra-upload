@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RUN_SET>
+ <RUN alias="run-357_N1" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-357_N1"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="357_N1all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="632b94bfefbf6ada896badd5181ab076"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-357_N4" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-357_N4"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="357_N4all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="9a8ac559e9639bd65c048f6818adb706"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-357_N5" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-357_N5"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="357_N5all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="2360d5e529158a6e3665c7c7ddca3a94"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-358_N1" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-358_N1"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="358_N1all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="65e93a396c5efa20f386f57a26da218e"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-358_N2" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-358_N2"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="358_N2all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="e14ce1321f117b05cc1cf266a40344b5"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-358_N3" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-358_N3"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="358_N3all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="ec13b2a54f2d866f59be954700fb9296"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-368_N2" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-368_N2"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="368_N2all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="129cf436179369b70a79ee56e4d78a1e"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-368_N4" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-368_N4"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="368_N4all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="f92c9296b4c72a9ae33f0a79cd8bb6b0"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-368_N8" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-368_N8"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="368_N8all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="5653f8ee7e4446e2ad5f2b83688ddc69"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-373_N1" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-373_N1"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="373_N1all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="1debe06e39571eea72267279345366fb"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-373_N3" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-373_N3"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="373_N3all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="7ab68525c3b16123a7b80bc847514719"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-373_N4" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-373_N4"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="373_N4all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="814224327c74d074eaba6f0e35a15b91"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-C20_351" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-C20_351"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="C20_351all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="bda3b200087680a120b70eddb60778ae"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-C20_353" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-C20_353"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="C20_353all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="68d457cc4dc3cb1c6e233220f3e00309"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-C20_375" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-C20_375"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="C20_375all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="169c65cb0e0a4e874400d2dbc026ce75"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-C20_381" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-C20_381"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="C20_381all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="31b3e9ee55867cd1df1c7e65d1ba05e3"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-C20_382" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-C20_382"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="C20_382all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="77facd76b5739afba8c9cbb75574bee4"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+ <RUN alias="run-C20_383" center_name="GFB">
+  <EXPERIMENT_REF refname="exp-C20_383"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="C20_383all.fastq.gz" filetype="fastq"
+          checksum_method="MD5" checksum="e3f61437b6ec60a007509afbed7e01e2"/>
+   </FILES>
+  </DATA_BLOCK>
+  <RUN_ATTRIBUTES>
+   <RUN_ATTRIBUTE>
+    <TAG>run date</TAG>
+    <VALUE>2013-08-25</VALUE>
+   </RUN_ATTRIBUTE>
+  </RUN_ATTRIBUTES>
+ </RUN>
+</RUN_SET>
