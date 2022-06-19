@@ -1,0 +1,27 @@
+# Check the compressed are present
+while read s b o; do if [[ -s "samples/${s}/${b}/raw_uploads/dehuman.cram.md5" ]]; then echo -n '.'; else printf '\r\e[Kmissing:\t%s/%s\n' "$s" "$b"; fi; done < samples.wastewateronly.tsv
+
+# Build TSV subset from batch list
+gawk '$2~/'$( read -d '|' -a bat <wwlist.txt; IFS='|'; echo "${bat[*]}" )'/' ../working/samples.wastewateronly.tsv > wwlist.tsv
+gawk '$2~/20210226_JG6YF'$(printf '|%s' $(<wwlist.txt)'/' ../working/samples.wastewateronly.tsv > wwlist_ex.tsv
+
+# Check TSV samples have completed
+while read s b o; do if [[ -s "samples/${s}/${b}/raw_uploads/dehuman.cram.md5" ]]; then echo -n '.'; else printf '\r\e[Kmissing:\t%s/%s\n' "$s" "$b"; fi; done < wwlist.tsv
+
+# Build md5sum
+while read s b o; do md5=( $(<"samples/${s}/${b}/raw_uploads/dehuman.cram.md5") ); printf '%s\t%s_%s.cram\n' "${md5[0]}" "${s}" "${b}"; done < wwlist.tsv > wwlist.md5
+
+# Check for duplicates from another upload
+grep -P "$(cra=( $(cut -f 2 ww-alpha/ww.md5) ); IFS='|'; echo "${cra[*]}" )" run.xml
+
+# Create links for upload
+while read s b o; do ln "../working/samples/${s}/${b}/raw_uploads/dehuman.cram" "${s}_${b}.cram"; done < ../work-catchup-dehuman/wwlist.tsv
+
+# Create upload list
+grep -oP '(?<=<FILE filename=")[^."]+.cram(?=" filetype="cram")' run.xml > uploadlist.txt
+
+# Test the upload on the test database:
+curl --netrc -F "SUBMISSION=@submission.xml" -F "SAMPLE=@samples.xml" -F "EXPERIMENT=@exp.xml" -F "RUN=@run.xml" "https://wwwdev.ebi.ac.uk/ena/submit/drop-box/submit/" | tee receipt.xml
+
+
+
