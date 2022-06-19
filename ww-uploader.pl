@@ -3,12 +3,27 @@
 use strict;
 use warnings;
 
+
+my $DEBUG=1;
+my $samplesonly=1;
+
 #tables
 my %wwtp = (
+	# Initial members
 	10 => [ 'ZH - Zürich - ARA Werdhölzli',	47.4007,	8.4810 ],
 	12 => [ 'VD - Lausanne - STEP Vidy',	46.5202,	6.5929 ],
+
+	# Larger delta study
+	05 => [ 'TI - Lugano - CDA Lugano',	46.0096,	8.9177 ],
+	19 => [ 'SG - Altenrhein - ARA Altenrhein',	47.4902,	9.5673 ],
+	17 => [ 'GR - Chur - ARA Chur',	46.8707,	9.5293 ],
+	#16 => [ 'GE - Genève - STEP d\'Aïre',	46.1970, 6.08999 ],
+	25 => [ 'BE - Laupen - ARA Sensetal',	46.9174, 7.24057 ],
+
+	## special
 	24 => [ 'Ski Resort', 'restricted access', 'restricted access' ], # disclosure of the ski resort is not allowed
 );
+
 
 my %const = ( 
 	"ENA-CHECKLIST"	=> "ERC000023",
@@ -28,9 +43,17 @@ my %fixed = (
 	"study" => "PRJEB44932", # "PRJEB44932",
 );
 
-my $rx_sam = qr{(?P<samid>(?:(?P<plant>\d+)_(?P<year>20\d{2})_(?:(?:(?P<month>[01]?\d)_(?P<day>[0-3]?\d))|(?:R_(?P<repeat>\d+))))|(?:Wild_(?P<dilution>\d+)_(?P<dilrep>\d+)))};
+my $rx_sam = qr{(?P<samid>(?:(?P<plant>\d+)_(?P<year>20\d{2})_(?:(?:(?P<month>[01]?\d)_(?P<day>[0-3]?\d))|(?:R_(?P<repeat>\d+))))|(?:Wild_(?P<dilution>\d+)_(?P<dilrep>\d+)))(?P<suffix>_\w+)?};
 my $rx_bat = qr{(?P<year>20\d{2})(?P<month>[01]\d)(?P<day>[0-3]?\d)_(?P<flow>\w)};
 
+my %suffixes = (
+	'_P' => '_P',	# same sample, alternate processing (Promega)
+	'_n' => '_3',		# HACK triplicate, within the same batch
+	'_CATTCGGA' => '_2',	# HACK accidental duplicate within same batch with alternative library index
+);
+my %specialbatch = (
+	'20210820_o25795' => 'MiSeq',
+);
 
 # parameter
 my $listfile = shift @ARGV;
@@ -48,6 +71,9 @@ my %md5sum;
 	}
 	close $fh;
 }
+print STDERR "number of hashes: ". (scalar keys %md5sum) . "\n"
+	if $DEBUG;
+
 
 #input TSV
 open my $fh, '<', $listfile
@@ -79,8 +105,11 @@ RUNHEADER
 
 while(<$fh>) {
 	my ($sam, $bat, $len) = split;
-	next 
-		unless ($sam =~ $rx_sam);
+	unless ($sam =~ $rx_sam) {
+		print STDERR "cannot parse $sam\n"
+			if $DEBUG;
+		next;
+	}
 
 	my $expid = $+{'samid'};
 	my $title = my $samtitle = my $samid = '';
@@ -88,6 +117,11 @@ while(<$fh>) {
 
 	# sample types
 	if (defined $+{'dilrep'}) {
+		if ($samplesonly) {
+			print STDERR "skipping dilution $sam\n"
+				if $DEBUG;
+			next
+		}
 		# special case: dilution serie
 
 		$attr{'collection date'} = '2021-03-09';
@@ -99,6 +133,11 @@ while(<$fh>) {
 		$samtitle = "SARS-CoV2 Wild:B117 1:$dilution dilution wastewater sample";
 		$title = "$samtitle replicate $rep";
 	} elsif (defined $+{'repeat'}) {
+		if ($samplesonly) {
+			print STDERR "skipping replicate $sam\n"
+				if $DEBUG;
+			next
+		}
 		# special case: replicate serie
 
 		$attr{'collection date'} = '2021-03-09';
@@ -111,8 +150,11 @@ while(<$fh>) {
 		$title = "$samtitle replicate $rep";
 	} else {
 		# standard waste-water sample
-		next
-			unless (defined $wwtp{int $+{'plant'}});
+		unless (defined $wwtp{int $+{'plant'}}) {
+			print STDERR "Unknown plant $+{'plant'}\n"
+				if $DEBUG;
+			next
+		}
 
 		$attr{'collection date'} = sprintf('%04u-%02u-%02u', $+{'year'}, $+{'month'}, $+{'day'});
 		( $attr{'geographic location (region and locality)'},
@@ -121,8 +163,9 @@ while(<$fh>) {
 		$samid = $expid;
 		$samtitle = $title = "SARS-CoV-2 positive wastewater sample $samid";
 
-		# HACK triplicate, within the same batch
-		$expid .= '_3' if ($sam =~ m{_n});
+		# HACK a few corner cases depending on suffixes.
+		$expid .= $suffixes{$+{'suffix'}}
+			if (defined $+{'suffix'} and defined $suffixes{$+{'suffix'}});
 
 		# append batch
 		$expid .= "_$bat";
@@ -132,6 +175,7 @@ while(<$fh>) {
 
 	# batch type
 	# HACK recognize the instrument based ond the flow cell id
+	# TODO use batch.yaml
 	my $instr = 'Illumina';
 	$bat =~ $rx_bat;
 	my $expdate = "$+{'year'}-$+{'month'}-$+{'day'}";
@@ -139,6 +183,10 @@ while(<$fh>) {
 		$instr .= ' MiSeq';
 	} elsif ($+{'flow'} eq 'H') { # e.g.: _HYW2CDRXX
 		$instr .= ' NovaSeq 6000';
+	} elsif (defined $specialbatch{$bat})  { # special case (fused batches)
+		$instr .=  " $specialbatch{$bat}";
+	} else {
+		print STDERR "Cannot parse batch <$bat>\n";
 	}
 
 	# file
