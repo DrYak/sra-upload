@@ -25,3 +25,8 @@ curl --netrc -F "SUBMISSION=@submission.xml" -F "SAMPLE=@samples.xml" -F "EXPERI
 
 
 
+# Check reported broken file:
+samtools stats  ../working/samples/17_2021_02_21/20210514_H3LCTDRXY/raw_uploads/dehuman.cram
+ls -l  ../working/samples/17_2021_02_21/20210514_H3LCTDRXY/{alignments,raw_uploads}/
+grep -P '17_2021_02_21\t20210514_H3LCTDRXY' ../working/samples.wastewateronly.tsv #| tee -a wwlist_redo.tsv 
+ 
